@@ -57,6 +57,18 @@ RSpec.describe Task, type: :model do
 
   describe '#increment_priority' do 
     it "should return the priority plus one in case the priority is less than 10" do 
-      task = Task.new(increment:)
+      task = Task.new(priority: 6)
+      task.increment_priority!
+      expect(task.priority).to eq(7)
+    end 
+  end
+
+   describe '#decrement_priority' do 
+    it "should return the priority minus one in case the priority is greater than 1" do 
+      task = Task.new(priority: 6)
+      task.decrement_priority!
+      expect(task.priority).to eq(5)
+    end 
+  end  
 end
 
